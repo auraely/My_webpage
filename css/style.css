@@ -1,6 +1,6 @@
 :root {
   
-  --primary-color: #808080;    /* variables   */
+  --primary-color: #808080;
   --standard-margin: 10px;
 
 }
@@ -23,18 +23,26 @@ body {
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 1.5;
-  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 50px 50px;
+
 }
+  
+
 
 header {
            /* create a grid to place the header and navbar */
+           
     display: grid;
+    grid-column: 1/2;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     background: var(--primary-color);
     color: #ffffff;
     padding: 5px;
     height:auto;
+    
   
 }
 
@@ -62,7 +70,8 @@ header nav a:hover {
 }
 
 
-.hero-banner {                   /* flexbox for the banner  */
+.hero-banner { 
+  grid-column: 1/ 2;                /* flexbox for the banner  */
   display: flex;
   padding: 20px 20px;
   flex-shrink: 3;
@@ -77,12 +86,12 @@ header nav a:hover {
 /* create a  grid to wrap the main and the image   */
 .page-wrapper  {
 
-  grid-column: 1 / 3;
+  grid-column: 1 / 2;
   display: grid;
   grid-template-columns: 1fr 5fr;
   grid-template-rows: repeat(4, auto);
-  gap: 35px;
-  grid-template-areas:      /* Create the layout for grid  */
+  gap: 20px;
+  grid-template-areas:      /*Create the layout for grid  */
 
     'section-0 section-0'
     'section-1 section-2'
@@ -119,7 +128,7 @@ main section {
 
 .page-section {
   grid-area: section-1;
-  display: flex;   /* inside the grid, this column becomes a flexbox  so we can modify easier positions  */
+  display: flex;   /* inside the grid, this column becomes a flexbox   */
   justify-content:right;
   border:none;
 }
@@ -155,6 +164,7 @@ main section {
 
   justify-content:right;
   border:none;
+  margin-bottom: 20px;
   
 }
 
@@ -220,17 +230,21 @@ main section {
     
 }
 
-@media (max-width: 400px)  {
+@media (max-width: 768px)  {
+
 
   header {
-    grid-template-columns: 1fr 2fr;
-  }
 
+    grid-template-columns: 1fr 2fr;
+
+  }  
+
+  .hero-banner {
+    font-size: .85rem;
+   }
+    
   nav a {
     font-size: .85rem;
   }
-
-  
-
 
 }
